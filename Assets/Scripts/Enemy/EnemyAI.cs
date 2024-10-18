@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] float emitCommandInterval;
+    [SerializeField] int attackInterval;
+    [SerializeField] int moveInterval;
     public Transform attackTarget;
-    private float emitTimer;
+    public Vector2 movePoint1;
+    public Vector2 movePoint2;
     public Queue<ICommand> CommandQueue;
+
+    private float emitAttackTimer;
+    private float emitMoveTimer;
 
     private void Awake()
     {
         CommandQueue = new Queue<ICommand>();
         attackTarget = FindObjectOfType<Player>().transform;
+        movePoint1 = (Vector2)transform.position + Vector2.right * 3;
     }
 
     public EnemyAI(Transform anAttackTarget)
@@ -22,17 +28,27 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        emitTimer += Time.deltaTime;
-        if (emitTimer >= emitCommandInterval)
+        emitAttackTimer += Time.deltaTime;
+        emitMoveTimer += Time.deltaTime;
+        if (emitAttackTimer >= attackInterval)
         {
-            EmitCommand();
-            emitTimer = 0;
+            EmitAttackCommand();
+            emitAttackTimer = 0;
         }
+        if (emitMoveTimer >= moveInterval)
+        {
+            EmitMoveCommand();
+            emitMoveTimer = 0;
+		}
     }
 
-    public void EmitCommand()
+    private void EmitAttackCommand()
     {
         CommandQueue.Enqueue(new AttackCommand(attackTarget));
 	}
 
+    private void EmitMoveCommand()
+    {
+        CommandQueue.Enqueue(new MoveCommand(movePoint1));
+	}
 }

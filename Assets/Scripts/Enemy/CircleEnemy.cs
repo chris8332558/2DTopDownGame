@@ -17,6 +17,7 @@ public class CircleEnemy : GameActor, IEnemy
         base.Awake();
         ai = GetComponent<EnemyAI>();
         bulletRedPool = GameObject.Find("BulletRedPool").GetComponent<ObjectPool>(); ;
+        moveSpeed = 3f;
     }
 
     private void FixedUpdate()
@@ -31,6 +32,7 @@ public class CircleEnemy : GameActor, IEnemy
 
     public void Initialize()
     {
+        // Other logic when initialize this
         Debug.Log(EnemyName + "::Initialize()");
     }
 
@@ -60,4 +62,9 @@ public class CircleEnemy : GameActor, IEnemy
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         body.rotation = angle;
 	}
+
+    public override void MoveTo(Vector2 aPos)
+    {
+        body.velocity = (aPos - (Vector2)transform.position).normalized * moveSpeed;
+    }
 }

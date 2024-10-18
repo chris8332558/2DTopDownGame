@@ -2,12 +2,18 @@ using UnityEngine;
 
 public abstract class GameActor : MonoBehaviour
 {
-    protected Rigidbody2D body;
+    // Basic variables for movement for any GameActor
+    public Rigidbody2D body;
+    public float moveSpeed;
 
     abstract public void Attack(Transform aTarget);
+
+    virtual public void MoveTo(Vector2 aPos)
+    { }
 
     protected virtual void Awake()
     {
         body = GetComponent<Rigidbody2D>();
     }
+
 }

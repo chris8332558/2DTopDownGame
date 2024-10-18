@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: TriEnemy
-  damage: 2
+  damage: 0
 --- !u!114 &9149145554862312126
 MonoBehaviour:
   m_ObjectHideFlags: 0
