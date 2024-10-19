@@ -12,14 +12,6 @@ public class Health : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void Update()
-    {
-        if (currentHealth == 0)
-        {
-            Destroy(gameObject);
-		}
-    }
-
     public void TakeDamage(float aDamage)
     {
         currentHealth = Mathf.Clamp(currentHealth - aDamage, 0, maxHealth);

@@ -19,9 +19,12 @@ public class CountdownUI : MonoBehaviour
 
     private void Update()
     {
-        currentTime -= Time.deltaTime;
-        SecondsToMinutes();
-        timerUI.text = minute.ToString("00") + ":" + second.ToString("00");
+        if (second > 0)
+        {
+            currentTime -= Time.deltaTime;
+            SecondsToMinutes();
+            timerUI.text = minute.ToString("00") + ":" + second.ToString("00");
+        }
     }
 
     private void SecondsToMinutes()

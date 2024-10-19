@@ -10,12 +10,17 @@ public class CircleEnemy : GameActor, IEnemy
     [SerializeField] ObjectPool bulletRedPool;
     [SerializeField] Transform firePoint;
     [SerializeField] private float fireForce;
+    [SerializeField] private Transform[] partolPoints;
     private EnemyAI ai;
+    private float exp = 10f;
+
+    private Health health;
 
     protected override void Awake()
     {
         base.Awake();
         ai = GetComponent<EnemyAI>();
+        health = GetComponent<Health>();
         bulletRedPool = GameObject.Find("BulletRedPool").GetComponent<ObjectPool>(); ;
         moveSpeed = 3f;
     }
@@ -28,6 +33,10 @@ public class CircleEnemy : GameActor, IEnemy
     private void Update()
     {
         ExecuteCommand();
+        if (health.currentHealth <= 0)
+        {
+            Die();
+		}
     }
 
     public void Initialize()
@@ -67,4 +76,11 @@ public class CircleEnemy : GameActor, IEnemy
     {
         body.velocity = (aPos - (Vector2)transform.position).normalized * moveSpeed;
     }
+
+    public void Die()
+    {
+        GamePlayEvents.EnemyDie.Invoke();
+        GamePlayEvents.PlayerAddExp.Invoke(exp);
+        Destroy(gameObject);
+	}
 }

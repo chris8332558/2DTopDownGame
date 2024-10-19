@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        body.MovePosition(body.position + playerInput.inputVector.normalized * moveSpeed * Time.deltaTime);
+        body.MovePosition(body.position + moveSpeed * Time.deltaTime * playerInput.inputVector.normalized);
 
         // turn to mouse position
         Vector2 lookDir = mousePos - body.position;
