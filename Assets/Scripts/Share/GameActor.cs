@@ -6,7 +6,8 @@ public abstract class GameActor : MonoBehaviour
     public Rigidbody2D body;
     public float moveSpeed;
 
-    abstract public void Attack();
+    virtual public void Attack()
+    { }
 
     virtual public void MoveTo(Vector2 aPos)
     { }

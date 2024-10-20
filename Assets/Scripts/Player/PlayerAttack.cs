@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -7,11 +8,19 @@ public class PlayerAttack : MonoBehaviour
     private float fireInterval = 0.5f;
     private float fireTimer;
     [SerializeField] Transform firePoint;
-    [SerializeField] private ObjectPool bulletYellowPool; 
+    [SerializeField] private List<ObjectPool> bulletPoolList; 
+    [SerializeField] private ObjectPool currentBulletPool; 
+    private int currentBulletPoolIdx = 0;
+
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();    
+    }
+
+    private void Start()
+    {
+        currentBulletPool = bulletPoolList[currentBulletPoolIdx];
     }
 
     private void OnEnable()
@@ -35,7 +44,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Fire()
     {
-        PooledObject aBullet = bulletYellowPool.GetPooledObject();
+        PooledObject aBullet = currentBulletPool.GetPooledObject();
         aBullet.transform.position = firePoint.position;
         aBullet.transform.rotation = firePoint.rotation;
         aBullet.gameObject.SetActive(true);
@@ -47,4 +56,13 @@ public class PlayerAttack : MonoBehaviour
     {
         fireInterval -= 0.05f;
 	}
+
+    public void UpdateBulletPool()
+    {
+        if (currentBulletPoolIdx < bulletPoolList.Count)
+        {
+            currentBulletPoolIdx++;
+            currentBulletPool = bulletPoolList[currentBulletPoolIdx];
+        }
+    }
 }
