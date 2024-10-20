@@ -6,7 +6,7 @@ public class CountdownUI : MonoBehaviour
 {
     [SerializeField] private float initTime; 
     [SerializeField] private float currentTime; 
-    [SerializeField] private TextMeshProUGUI timerUI;
+    [SerializeField] private TextMeshProUGUI timerText;
 
     private float minute;
     private float second;
@@ -14,16 +14,16 @@ public class CountdownUI : MonoBehaviour
     private void Awake()
     {
         currentTime = initTime;
-        timerUI = GetComponent<TextMeshProUGUI>();
+        timerText = GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
     {
-        if (second > 0)
+        if (currentTime > 0)
         {
             currentTime -= Time.deltaTime;
             SecondsToMinutes();
-            timerUI.text = minute.ToString("00") + ":" + second.ToString("00");
+            timerText.text = minute.ToString("00") + ":" + second.ToString("00");
         }
     }
 
