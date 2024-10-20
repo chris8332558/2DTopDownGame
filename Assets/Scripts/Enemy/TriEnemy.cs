@@ -18,7 +18,7 @@ public class TriEnemy : GameActor, IEnemy
 
     public void Initialize()
     {
-        Debug.Log("Initialize Enemy: " + EnemyName);
+        //Debug.Log("Initialize Enemy: " + EnemyName);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

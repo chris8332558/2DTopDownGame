@@ -3,7 +3,6 @@ using UnityEngine;
 public class CircleEnemySpawner : EnemySpawner
 {
     [SerializeField] private CircleEnemy circleEnemyPrefab;
-    [SerializeField] private Transform spawnPos;
     [SerializeField] private float spawnCooldown;
     [SerializeField] private float spawnTimer;
 

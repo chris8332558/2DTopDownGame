@@ -295,10 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackInterval: 2
-  moveInterval: 5
-  attackTarget: {fileID: 0}
-  movePoint1: {x: 0, y: 0}
-  movePoint2: {x: 0, y: 0}
+  moveInterval: 7
 --- !u!114 &2023314479702008678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,9 +309,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  moveSpeed: 0
+  moveSpeed: 1.36
   enemyName: CircleEnemy
   damage: 3
   bulletRedPool: {fileID: 0}
   firePoint: {fileID: 4629852353688354962}
   fireForce: 5
+  partolPoints: []
+  player: {fileID: 0}
+  ai: {fileID: 0}

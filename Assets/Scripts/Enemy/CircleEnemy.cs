@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Collections;
 
 public class CircleEnemy : GameActor, IEnemy 
 {
@@ -13,9 +15,9 @@ public class CircleEnemy : GameActor, IEnemy
     [SerializeField] private Transform[] partolPoints;
     [SerializeField] private Player player;
 
-    private EnemyAI ai;
+    [SerializeField] private EnemyAI ai;
 
-    private float exp = 10f;
+    private float exp = 30f;
     private Health health;
 
     protected override void Awake()
@@ -30,7 +32,7 @@ public class CircleEnemy : GameActor, IEnemy
 
     private void Start()
     {
-        ai.SetControlTarger(this);
+        ai.AddControlTarget(this);
     }
 
     private void FixedUpdate()
@@ -82,8 +84,21 @@ public class CircleEnemy : GameActor, IEnemy
 
     public override void MoveTo(Vector2 aPos)
     {
-        body.velocity = (aPos - (Vector2)transform.position).normalized * moveSpeed;
+        Vector2 target = transform.position;
+        StartCoroutine(MoveEnumerator(target + aPos));
     }
+
+    private IEnumerator MoveEnumerator(Vector2 aPos)
+    {
+        float t = 0;
+        Vector2 start = transform.position;
+        while (t <= 1)
+        {
+            t += Time.fixedDeltaTime / moveSpeed;
+            body.MovePosition(Vector2.Lerp(start, aPos, t));
+            yield return null;
+		}
+	} 
 
     public void Die()
     {
