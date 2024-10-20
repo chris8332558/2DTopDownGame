@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     private PlayerInput playerInput;
     private float fireForce = 20f;
-    private float fireInterval = 0.1f;
+    private float fireInterval = 0.5f;
     private float fireTimer;
     [SerializeField] Transform firePoint;
     [SerializeField] private ObjectPool bulletYellowPool; 

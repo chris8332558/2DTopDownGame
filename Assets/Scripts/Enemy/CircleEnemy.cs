@@ -11,9 +11,11 @@ public class CircleEnemy : GameActor, IEnemy
     [SerializeField] Transform firePoint;
     [SerializeField] private float fireForce;
     [SerializeField] private Transform[] partolPoints;
-    private EnemyAI ai;
-    private float exp = 10f;
+    [SerializeField] private Player player;
 
+    private EnemyAI ai;
+
+    private float exp = 10f;
     private Health health;
 
     protected override void Awake()
@@ -21,13 +23,19 @@ public class CircleEnemy : GameActor, IEnemy
         base.Awake();
         ai = GetComponent<EnemyAI>();
         health = GetComponent<Health>();
+        player = FindObjectOfType<Player>();
         bulletRedPool = GameObject.Find("BulletRedPool").GetComponent<ObjectPool>(); ;
         moveSpeed = 3f;
     }
 
+    private void Start()
+    {
+        ai.SetControlTarger(this);
+    }
+
     private void FixedUpdate()
     {
-        TurnToTarget();
+        TurnToPlayer();
     }
 
     private void Update()
@@ -45,7 +53,7 @@ public class CircleEnemy : GameActor, IEnemy
         Debug.Log(EnemyName + "::Initialize()");
     }
 
-    public override void Attack(Transform aTarget)
+    public override void Attack()
     {
         Debug.Log(EnemyName + "::Attack()");
         PooledObject aBullet = bulletRedPool.GetPooledObject();
@@ -57,17 +65,17 @@ public class CircleEnemy : GameActor, IEnemy
 
     private void ExecuteCommand()
     { 
-        if (ai.CommandQueue.Count != 0)
+        if (ai.commandQueue.Count != 0)
         {
-            ICommand aCommand = ai.CommandQueue.Dequeue();
+            ICommand aCommand = ai.commandQueue.Dequeue();
             if (aCommand != null)
                 aCommand.Execute(this);
         }
 	}
 
-    private void TurnToTarget()
+    private void TurnToPlayer()
     { 
-        Vector2 lookDir = (Vector2)ai.attackTarget.position - body.position;
+        Vector2 lookDir = (Vector2)player.transform.position - body.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         body.rotation = angle;
 	}

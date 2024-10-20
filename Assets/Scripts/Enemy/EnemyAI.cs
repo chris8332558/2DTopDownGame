@@ -4,49 +4,28 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] int attackInterval;
-    [SerializeField] int moveInterval;
-    [SerializeField] private List<Transform> patrolPoints;
-    public Transform attackTarget;
-    public Queue<ICommand> CommandQueue;
+    public Queue<ICommand> commandQueue = new();
+    private IEnemy controlTarget;
 
     private float emitAttackTimer;
-    private float emitMoveTimer;
-
-    private void Awake()
-    {
-        CommandQueue = new Queue<ICommand>();
-        attackTarget = FindObjectOfType<Player>().transform;
-    }
 
     private void Update()
     {
         emitAttackTimer += Time.deltaTime;
-        //emitMoveTimer += Time.deltaTime;
         if (emitAttackTimer >= attackInterval)
         {
             EmitAttackCommand();
             emitAttackTimer = 0;
         }
-        //if (emitMoveTimer >= moveInterval)
-        //{
-        //    EmitMoveCommand();
-        //    emitMoveTimer = 0;
-		//}
     }
 
-    private void EmitAttackCommand()
+    public void SetControlTarger(IEnemy anEnemy)
     {
-        CommandQueue.Enqueue(new AttackCommand(attackTarget));
+        controlTarget = anEnemy;
 	}
 
-    private void EmitMoveCommand()
+    public void EmitAttackCommand()
     {
-        CommandQueue.Enqueue(new MoveCommand(GetRandomPatrolPoint().position));
-	}
-
-    private Transform GetRandomPatrolPoint()
-    {
-        int idx = Random.Range(0, patrolPoints.Count);
-        return patrolPoints[idx];
+        commandQueue.Enqueue(new AttackCommand());
 	}
 }

@@ -39,7 +39,7 @@ public class TriEnemy : GameActor, IEnemy
     }
 
 
-    public override void Attack(Transform aTarget)
+    public override void Attack()
     {
         Debug.Log(enemyName + "::Attack()");
 	}
