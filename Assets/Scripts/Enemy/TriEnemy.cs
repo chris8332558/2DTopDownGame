@@ -41,7 +41,7 @@ public class TriEnemy : GameActor, IEnemy
 
     public override void Attack()
     {
-        Debug.Log(enemyName + "::Attack()");
+        // Debug.Log(enemyName + "::Attack()");
 	}
 
     public void Die()

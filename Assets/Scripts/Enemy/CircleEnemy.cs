@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 using System.Collections;
 
 public class CircleEnemy : GameActor, IEnemy 
@@ -12,9 +11,7 @@ public class CircleEnemy : GameActor, IEnemy
     [SerializeField] ObjectPool bulletRedPool;
     [SerializeField] Transform firePoint;
     [SerializeField] private float fireForce;
-    [SerializeField] private Transform[] partolPoints;
     [SerializeField] private Player player;
-
     [SerializeField] private EnemyAI ai;
 
     private float exp = 30f;
@@ -52,12 +49,12 @@ public class CircleEnemy : GameActor, IEnemy
     public void Initialize()
     {
         // Other logic when initialize this
-        Debug.Log(EnemyName + "::Initialize()");
+        // Debug.Log(EnemyName + "::Initialize()");
     }
 
     public override void Attack()
     {
-        Debug.Log(EnemyName + "::Attack()");
+        // Debug.Log(EnemyName + "::Attack()");
         PooledObject aBullet = bulletRedPool.GetPooledObject();
         aBullet.transform.position = firePoint.position;
         aBullet.transform.rotation = firePoint.rotation;

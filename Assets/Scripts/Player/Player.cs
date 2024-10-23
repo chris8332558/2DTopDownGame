@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class Player : GameActor 
 {
     private PlayerLevel playerLevel;

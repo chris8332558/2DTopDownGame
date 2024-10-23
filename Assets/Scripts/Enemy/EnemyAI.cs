@@ -6,7 +6,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] int attackInterval;
     [SerializeField] int moveInterval;
     public Queue<ICommand> commandQueue = new();
-    private List<IEnemy> controlTargets = new();
+    public List<IEnemy> controlTargets = new();
 
     private float emitAttackTimer;
     private float emitMoveTimer;

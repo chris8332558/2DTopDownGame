@@ -3,35 +3,75 @@
 public class PlayerAbility : MonoBehaviour
 {
     public AbilityRunner abilityRunner = new();
-    public AbilityA abilityA = new(); // can change to use scriptableObject
-    public AbilityB abilityB = new();
+    public FireAbility fireAbility = new(); // can change to use scriptableObject
+    public IceAbility iceAbility = new();
+    public LaserAbility laserAbility = new();
+    public ShieldAbility shieldAbility = new();
 
-    private void Start()
+    private Player player;
+    private PlayerInput playerInput;
+
+    private void Awake()
     {
-        abilityRunner.SetAbility(abilityA);
+        player = GetComponent<Player>();
+        playerInput = GetComponent<PlayerInput>();
+
+        SetupAbilityNames();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        HandleAbilitySetting();
+        if (Input.GetKeyDown(playerInput.AbilityUseKey))
         {
-            abilityRunner.SetAbility(abilityA);
-            abilityRunner.Use(this.GetComponent<Player>());
-		}
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            abilityRunner.SetAbility(abilityB);
-            abilityRunner.Use(this.GetComponent<Player>());
+            abilityRunner.Use(player);
 		}
     }
 
-    public void UseAbilityA()
+    public void LaunchFireball()
     { 
-        Debug.Log("Player.UseAbilityA()");
+        Debug.Log("Player.LaunchFireBall");
 	}
 
-    public void UseAbilityB()
+    public void LaunchIceBall()
     { 
-        Debug.Log("Player.UseAbilityB()");
+        Debug.Log("Player.LaunchIceBall");
+	}
+     
+    public void LaunchLaser()
+    { 
+        Debug.Log("Player.LaunchLaser");
+	}
+
+    public void LaunchShield()
+    { 
+        Debug.Log("Player.LaunchShield");
+	}
+
+    private void HandleAbilitySetting()
+    { 
+        if (Input.GetKeyDown(playerInput.Ability1Key))
+        {
+            abilityRunner.SetAbility(fireAbility);
+		}
+        else if (Input.GetKeyDown(playerInput.Ability2Key))
+        {
+            abilityRunner.SetAbility(iceAbility);
+		}
+        else if (Input.GetKeyDown(playerInput.Ability3Key))
+        {
+            abilityRunner.SetAbility(laserAbility);
+		}
+        else if (Input.GetKeyDown(playerInput.Ability4Key))
+        {
+            abilityRunner.SetAbility(shieldAbility);
+		}
+	}
+    private void SetupAbilityNames()
+    {
+        fireAbility.AbilityName = "Player Fireball";
+        iceAbility.AbilityName = "Player Iceball";
+        laserAbility.AbilityName = "Player Laser";
+        shieldAbility.AbilityName = "Player Shield";
 	}
 }
