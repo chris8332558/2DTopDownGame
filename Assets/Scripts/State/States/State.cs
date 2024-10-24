@@ -30,4 +30,12 @@ public class State : ScriptableObject
 			}
 		}
 	}
+
+    public void DrawActionGizmo(StateController aController)
+    { 
+	    foreach(Action anAction in actions)
+        {
+            anAction.DrawGizmo(aController);
+		}
+	}
 }

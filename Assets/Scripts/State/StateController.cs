@@ -43,4 +43,13 @@ public class StateController : MonoBehaviour
         isActive = anActiveState;
         currentState = anInitialState; 
 	}
+
+    private void OnDrawGizmos()
+    {
+        if (isActive)
+        {
+            Gizmos.color = currentState.gizmoColor;
+            currentState.DrawActionGizmo(this);
+        }
+    }
 }
