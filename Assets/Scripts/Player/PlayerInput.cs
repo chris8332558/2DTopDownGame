@@ -22,5 +22,5 @@ public class PlayerInput : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         inputVector = new Vector2(horizontalInput, verticalInput);
-	}
+    }
 }

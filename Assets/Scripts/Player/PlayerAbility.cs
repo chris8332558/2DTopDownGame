@@ -11,6 +11,11 @@ public class PlayerAbility : MonoBehaviour
     private Player player;
     private PlayerInput playerInput;
 
+    [SerializeField] GameObject fireball;
+    [SerializeField] GameObject iceball;
+    [SerializeField] GameObject laser;
+    [SerializeField] GameObject shield;
+
     private void Awake()
     {
         player = GetComponent<Player>();
@@ -31,22 +36,29 @@ public class PlayerAbility : MonoBehaviour
     public void LaunchFireball()
     { 
         Debug.Log("Player.LaunchFireBall");
+        GameObject instance = Instantiate(fireball, transform.position, transform.rotation);
+        instance.GetComponent<Rigidbody2D>().AddForce(transform.up * 8, ForceMode2D.Impulse);
 	}
 
     public void LaunchIceBall()
     { 
         Debug.Log("Player.LaunchIceBall");
+        GameObject instance = Instantiate(iceball, transform.position, transform.rotation);
+        instance.GetComponent<Rigidbody2D>().AddForce(transform.up * 3, ForceMode2D.Impulse);
 	}
      
     public void LaunchLaser()
     { 
         Debug.Log("Player.LaunchLaser");
+        GameObject instance = Instantiate(laser, transform.position , transform.rotation);
+        instance.GetComponent<Rigidbody2D>().AddForce(transform.up * 25, ForceMode2D.Impulse);
 	}
 
     public void LaunchShield()
     { 
         Debug.Log("Player.LaunchShield");
-	}
+        shield.SetActive(true);
+    }
 
     private void HandleAbilitySetting()
     { 

@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a38b38e16200f44c98f0b8139681c9c7, type: 2}
   transitions:
   - {fileID: 11400000, guid: 0470e0a41e7d24976b2dcaf18b5c9bd1, type: 2}
-  gizmoColor: {r: 0, g: 1, b: 0.21316147, a: 0}
+  gizmoColor: {r: 0, g: 1, b: 0.21316147, a: 1}
