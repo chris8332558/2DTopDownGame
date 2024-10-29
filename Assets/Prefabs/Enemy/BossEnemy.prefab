@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4125927818282549721}
   - component: {fileID: 2350117834325772165}
   - component: {fileID: 3408446206599891837}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BossEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1395721428180512391}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1776949155377179347}
   - component: {fileID: 4385584693492479327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1082324610148568490}
   - component: {fileID: 4067343690939596044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4556961476508299692}
   - component: {fileID: 271997519716733069}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5557687493008360558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

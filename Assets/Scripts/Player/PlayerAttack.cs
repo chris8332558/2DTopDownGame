@@ -36,10 +36,14 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         fireTimer += Time.deltaTime;
-        if (fireTimer > fireInterval && Input.GetKey(playerInput.attackKey))
+        if (fireTimer > fireInterval)
         {
             Fire();
 		}
+        //if (fireTimer > fireInterval && Input.GetKey(playerInput.attackKey))
+        //{
+        //    Fire();
+		//}
     }
 
     private void Fire()

@@ -37,7 +37,7 @@ public class PlayerAbility : MonoBehaviour
     { 
         Debug.Log("Player.LaunchFireBall");
         GameObject instance = Instantiate(fireball, transform.position, transform.rotation);
-        instance.GetComponent<Rigidbody2D>().AddForce(transform.up * 8, ForceMode2D.Impulse);
+        instance.GetComponent<Fireball>().Fire(transform.up);
 	}
 
     public void LaunchIceBall()

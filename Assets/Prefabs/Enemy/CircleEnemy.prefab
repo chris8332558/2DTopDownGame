@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3675285937578473140}
   - component: {fileID: 92891015006785074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4629852353688354962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 5167328782053874836}
   - component: {fileID: 1023449934160232880}
   - component: {fileID: 2023314479702008678}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CircleEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -315,6 +315,5 @@ MonoBehaviour:
   bulletRedPool: {fileID: 0}
   firePoint: {fileID: 4629852353688354962}
   fireForce: 5
-  partolPoints: []
   player: {fileID: 0}
   ai: {fileID: 0}

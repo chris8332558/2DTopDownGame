@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    private float initPoolSize = 30;
+    [SerializeField] private float initPoolSize = 30;
     [SerializeField] PooledObject poolObjectPrefab;
 
     private Stack<PooledObject> stack;
