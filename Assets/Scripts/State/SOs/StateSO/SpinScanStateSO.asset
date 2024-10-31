@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1faeab47fc042679c297333f502840, type: 3}
   m_Name: SpinScanStateSO
   m_EditorClassIdentifier: 
-  actions: []
-  transitions: []
-  gizmoColor: {r: 0, g: 0, b: 0, a: 0}
+  actions:
+  - {fileID: 11400000, guid: a38b38e16200f44c98f0b8139681c9c7, type: 2}
+  - {fileID: 11400000, guid: 059a30a215fdf406d9faef5d13d6e839, type: 2}
+  transitions:
+  - {fileID: 11400000, guid: 0470e0a41e7d24976b2dcaf18b5c9bd1, type: 2}
+  gizmoColor: {r: 0.20714669, g: 0.8962264, b: 0.31028068, a: 1}

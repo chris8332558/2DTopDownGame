@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7812383997844883bb8ac4982d7e655, type: 3}
   m_Name: ToSpinScanTransSO
   m_EditorClassIdentifier: 
-  nextState: {fileID: 0}
+  nextState: {fileID: 11400000, guid: 2638132752e5646d4ace31890925e1e4, type: 2}
