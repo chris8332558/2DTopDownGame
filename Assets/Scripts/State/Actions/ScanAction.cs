@@ -24,8 +24,8 @@ public class ScanAction : Action
     public override void DrawGizmo(StateController aController)
     { 
         Transform theEye = aController.eye;
-        //Gizmos.DrawRay(theEye.position, theEye.up * aController.scanRange);
-        Gizmos.DrawWireCube(theEye.position + Vector3.up * (aController.scanRange / 2), 
-			                Vector3.right + Vector3.up * aController.scanRange);
+        //Gizmos.DrawWireCube(theEye.position + theEye.forward * (aController.scanRange / 2), 
+			                //Vector3.right + Vector3.up * aController.scanRange);
+        Gizmos.DrawRay(theEye.position, theEye.up.normalized * aController.scanRange);
 	}
 }

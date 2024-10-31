@@ -12,9 +12,9 @@ public class EnemyMovement : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
-    private void Update()
-    {
+    public void MoveTowardPlayer()
+    { 
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
-    }
+	}
 
 }

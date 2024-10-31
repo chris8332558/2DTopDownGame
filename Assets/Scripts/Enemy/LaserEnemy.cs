@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BossEnemy : GameActor, IEnemy
+public class LaserEnemy: GameActor, IEnemy
 {
     [SerializeField] private string enemyName;
     [SerializeField] private float damage;
@@ -10,13 +8,12 @@ public class BossEnemy : GameActor, IEnemy
     public float Damage { get => damage; set => damage = value; }
 
     [SerializeField] ObjectPool bulletRedPool;
-    [SerializeField] Health health;
     [SerializeField] Transform firePoint;
     [SerializeField] private float fireForce;
 
+    Health health;
     private float exp = 80f;
 
-    
     protected override void Awake()
     {
         base.Awake();

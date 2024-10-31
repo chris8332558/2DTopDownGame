@@ -11,6 +11,7 @@ public class StateController : MonoBehaviour
     public Transform[] patrolPoints;
 
     public float scanRange;
+    public float rotateSpeed;
     public bool isActive;
     public bool scanedTarget;
 

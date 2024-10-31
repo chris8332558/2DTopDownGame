@@ -9,11 +9,13 @@ public class TriEnemy : GameActor, IEnemy
     public float Damage { get => damage; set => damage = value; }
 
     private Health health;
+    private EnemyMovement enemyMovement;
 
     protected override void Awake()
     {
         base.Awake();
         health = GetComponent<Health>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     public void Initialize()
@@ -36,13 +38,8 @@ public class TriEnemy : GameActor, IEnemy
         {
             Die();
 		}
+        enemyMovement.MoveTowardPlayer();
     }
-
-
-    public override void Attack()
-    {
-        // Debug.Log(enemyName + "::Attack()");
-	}
 
     public void Die()
     {
@@ -50,5 +47,4 @@ public class TriEnemy : GameActor, IEnemy
         GamePlayEvents.PlayerAddExp.Invoke(exp);
         Destroy(gameObject);
     }
-
 }

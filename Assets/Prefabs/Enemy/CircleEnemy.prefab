@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  moveSpeed: 1.36
+  moveSpeed: 1.1
   enemyName: CircleEnemy
   damage: 3
   bulletRedPool: {fileID: 0}
