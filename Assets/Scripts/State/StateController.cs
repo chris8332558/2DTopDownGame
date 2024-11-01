@@ -5,6 +5,7 @@ public class StateController : MonoBehaviour
     [SerializeField] private State currentState;
     public State CurrentState { get => currentState; set => currentState = value; }
 
+    public Player player;
     public GameActor controlledActor;
     public Transform eye;
     public LayerMask scanLayer;
@@ -18,6 +19,7 @@ public class StateController : MonoBehaviour
     private void Awake()
     {
         controlledActor = GetComponent<GameActor>();
+        player = FindObjectOfType<Player>();
     }
 
     private void Update()
